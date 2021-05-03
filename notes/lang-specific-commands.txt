@@ -1,0 +1,116 @@
+https://www.graalvm.org/docs/getting-started/#start-running-applications
+
+
+
+
+Imtiazs-MacBook-Pro:Programs sheikhimtiaz$ java -version
+openjdk version "11.0.11" 2021-04-20
+OpenJDK Runtime Environment GraalVM CE 21.1.0 (build 11.0.11+8-jvmci-21.1-b05)
+OpenJDK 64-Bit Server VM GraalVM CE 21.1.0 (build 11.0.11+8-jvmci-21.1-b05, mixed mode, sharing)
+Imtiazs-MacBook-Pro:Programs sheikhimtiaz$ js -version
+GraalVM JavaScript (GraalVM CE Native 21.1.0)
+Imtiazs-MacBook-Pro:Programs sheikhimtiaz$ lli --version
+LLVM 10.0.0 (GraalVM CE Native 21.1.0)
+Imtiazs-MacBook-Pro:test sheikhimtiaz$ javac HelloWorld.java 
+Imtiazs-MacBook-Pro:test sheikhimtiaz$ java HelloWorld
+Hello, GraalVM!
+
+
+
+
+
+
+
+Imtiazs-MacBook-Pro:test sheikhimtiaz$ cd ..
+Imtiazs-MacBook-Pro:graalvm-polyglot sheikhimtiaz$ js
+> 1+2
+3
+> var stuff = "Hello js from graal;"
+> stuff
+> quit
+function quit() { [native code] }
+> quit()
+Imtiazs-MacBook-Pro:graalvm-polyglot sheikhimtiaz$ node -v
+v12.16.3
+Imtiazs-MacBook-Pro:graalvm-polyglot sheikhimtiaz$ lli --version
+LLVM 10.0.0 (GraalVM CE Native 21.1.0)
+Imtiazs-MacBook-Pro:graalvm-polyglot sheikhimtiaz$ mkdir js
+Imtiazs-MacBook-Pro:graalvm-polyglot sheikhimtiaz$ cd js/
+Imtiazs-MacBook-Pro:js sheikhimtiaz$ npm init 
+This utility will walk you through creating a package.json file.
+It only covers the most common items, and tries to guess sensible defaults.
+
+See `npm help init` for definitive documentation on these fields
+and exactly what they do.
+
+Use `npm install <pkg>` afterwards to install a package and
+save it as a dependency in the package.json file.
+
+Press ^C at any time to quit.
+package name: (js) npm install colors ansispan
+Sorry, name can only contain URL-friendly characters.
+package name: (js) js
+version: (1.0.0) 1
+Invalid version: "1"
+version: (1.0.0) 
+description: test js directory
+entry point: (index.js) 
+test command: 
+git repository: 
+keywords: 
+author: 
+license: (ISC) 
+About to write to /Users/sheikhimtiaz/workstation/graalvm-polyglot/js/package.json:
+
+{
+  "name": "js",
+  "version": "1.0.0",
+  "description": "test js directory",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
+
+
+Is this OK? (yes) 
+Imtiazs-MacBook-Pro:js sheikhimtiaz$ npm init 
+This utility will walk you through creating a package.json file.
+It only covers the most common items, and tries to guess sensible defaults.
+
+See `npm help init` for definitive documentation on these fields
+and exactly what they do.
+
+Use `npm install <pkg>` afterwards to install a package and
+save it as a dependency in the package.json file.
+
+Press ^C at any time to quit.
+package name: (js) npm WARN init canceled
+Imtiazs-MacBook-Pro:js sheikhimtiaz$ npm install colors ansispan
+npm notice created a lockfile as package-lock.json. You should commit this file.
+npm WARN js@1.0.0 No repository field.
+
++ colors@1.4.0
++ ansispan@0.0.4
+added 2 packages from 3 contributors and audited 2 packages in 4.209s
+found 0 vulnerabilities
+
+
+
+Imtiazs-MacBook-Pro:c sheikhimtiaz$ gu install llvm-toolchain
+Downloading: Component catalog from www.graalvm.org
+Processing Component: LLVM.org toolchain
+Downloading: Component llvm-toolchain: LLVM.org toolchain  from github.com
+Installing new component: LLVM.org toolchain (org.graalvm.llvm-toolchain, version 21.1.0)
+Imtiazs-MacBook-Pro:c sheikhimtiaz$ export LLVM_TOOLCHAIN=$(lli --print-toolchain-path)
+Imtiazs-MacBook-Pro:c sheikhimtiaz$ $LLVM_TOOLCHAIN/clang hello.c -o hello
+Imtiazs-MacBook-Pro:c sheikhimtiaz$ lli hello
+Hello from GraalVM!
+
+
+
+
+More languages - Python, Ruby, R, WebAssembly
+
