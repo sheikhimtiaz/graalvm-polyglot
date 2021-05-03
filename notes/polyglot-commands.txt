@@ -1,0 +1,15 @@
+js --polyglot --jvm polyglot.js
+
+Rscript --polyglot --jvm polyglot.R
+
+ruby --polyglot --jvm polyglot.rb
+
+graalpython --polyglot --jvm polyglot.py
+
+javac Polyglot.java
+java Polyglot
+
+$LLVM_TOOLCHAIN/clang polyglot.c -lgraalvm-llvm -o polyglot
+lli --polyglot polyglot
+
+
