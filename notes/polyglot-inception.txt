@@ -1,0 +1,42 @@
+https://deepu.tech/polyglot-showdown-with-graalvm/
+
+sdk list java
+# you can use a newer version if available
+sdk install java 19.3.1.r11-grl
+sdk use java 19.3.1.r11-grl
+# Check everything
+java -version
+node -v
+lli --version
+
+
+gu install llvm-toolchain
+export LLVM_TOOLCHAIN=\$(lli --print-toolchain-path)
+
+gu install python
+gu install ruby
+
+
+
+curl https://sh.rustup.rs -sSf | sh
+
+
+
+
+export LLVM_TOOLCHAIN=$(lli --print-toolchain-path)
+$LLVM_TOOLCHAIN/clang++ -shared cpppart.cpp -lpolyglot-mock -o cpppart
+
+rustc --emit=llvm-bc rustpart.rs
+
+
+
+
+---------!---------
+export LLVM_TOOLCHAIN=$(lli --print-toolchain-path)
+$LLVM_TOOLCHAIN/clang++ -shared cpppart.cpp -lpolyglot-mock -o cpppart || exit
+
+rustc --emit=llvm-bc rustpart.rs || exit
+
+javac Polyglot.java && java Polyglot
+
+
