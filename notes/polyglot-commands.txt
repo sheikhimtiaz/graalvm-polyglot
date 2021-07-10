@@ -13,3 +13,5 @@ $LLVM_TOOLCHAIN/clang polyglot.c -lgraalvm-llvm -o polyglot
 lli --polyglot polyglot
 
 
+https://www.graalvm.org/sdk/javadoc/org/graalvm/polyglot/package-summary.html
+
